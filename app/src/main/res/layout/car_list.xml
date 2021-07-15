@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="vertical"
+       android:layout_height="wrap_content">
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_margin="20dp"
+           android:elevation="4dp"
+           app:cardCornerRadius="8dp">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:id="@+id/tvCarType"
+                   android:layout_height="wrap_content"
+                   android:padding="10dp"
+                   android:text="Mercedes"
+                   android:textSize="18sp" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:id="@+id/tvNumberPlate"
+                   android:layout_height="wrap_content"
+                   android:padding="10dp"
+                   android:text="KZY 110R"
+                   android:textSize="18sp" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:id="@+id/tvColor"
+                   android:layout_height="wrap_content"
+                   android:padding="10dp"
+                   android:text="Black"
+                   android:textSize="18sp" />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:id="@+id/tvOther"
+                   android:layout_height="wrap_content"
+                   android:padding="10dp"
+                   android:text="Brand new Tesla"
+                   android:textSize="18sp" />
+           </LinearLayout>
+       </androidx.cardview.widget.CardView>
+   </LinearLayout>
+
+
+</RelativeLayout>

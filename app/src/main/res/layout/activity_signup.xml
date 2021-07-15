@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".SignupActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="@dimen/logo_w_h"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/download"
+        android:layout_height="@dimen/logo_w_h"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Welcome to NCCG smart parking system"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/email"
+            android:hint="@string/email"
+            android:background="@drawable/edt_input"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:layout_marginBottom="15dp"
+            android:singleLine="true"
+            android:layout_height="wrap_content"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:id="@+id/password"
+                android:background="@drawable/edt_input"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:layout_height="wrap_content"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/sign_up_button"
+            style="?android:textAppearanceSmall"
+            android:text="SIGNUP"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+
+            android:textColor="@color/white"
+            android:background="@drawable/btn_bg"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/btn_reset_password"
+            style="?android:textAppearanceSmall"
+            android:text="@string/btn_forgot_password"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@null"
+            android:layout_height="wrap_content"
+            android:gravity="end" />
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/sign_in_button"
+            android:background="@null"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Already have an account?Login.."
+            android:textAllCaps="false"
+            android:textSize="14dp"
+            android:layout_height="wrap_content"/>
+        <ProgressBar
+            android:layout_width="30dp"
+            android:id="@+id/progressBar"
+            android:layout_gravity="center|bottom"
+            android:visibility="gone"
+            android:layout_marginBottom="20dp"
+            android:layout_height="30dp"/>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
