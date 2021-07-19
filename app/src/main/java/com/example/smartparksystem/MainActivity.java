@@ -66,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         carRef = database.getReference("Cars");
-        if (auth.getCurrentUser() != null) {
-            uid = auth.getUid();
-        }
+//        if (auth.getCurrentUser() != null) {
+            uid = auth.getCurrentUser().getUid();
+//        }
         carType = etCarType.getText().toString().trim();
         model = etModel.getText().toString().trim();
         numberPlate = etNumberPlate.getText().toString().trim();

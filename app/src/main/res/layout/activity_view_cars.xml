@@ -8,18 +8,37 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_margin="20dp"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Your registered cars"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp" />
-     <ListView
-         android:layout_width="match_parent"
-         android:id="@+id/carsList"
-         android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="100dp"
+            android:id="@+id/new_car"
+            android:background="@drawable/btn_new"
+            android:text="Add New"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_gravity="end"
+            android:layout_height="50dp"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/download" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Your registered cars with NCCG Smart parking "
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp" />
+
+        <ListView
+            android:id="@+id/carsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </RelativeLayout>

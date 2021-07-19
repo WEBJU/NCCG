@@ -35,13 +35,13 @@ public class CarListAdapter extends ArrayAdapter<Parking> {
         TextView carType=listItemView.findViewById(R.id.tvCarType);
         TextView numberPlate=listItemView.findViewById(R.id.tvNumberPlate);
         TextView color=listItemView.findViewById(R.id.tvColor);
-        TextView other=listItemView.findViewById(R.id.tvColor);
+        TextView other=listItemView.findViewById(R.id.tvOther);
 
-        carType.setText(parking.getCarType());
-        numberPlate.setText(parking.getNumberPlate());
-        color.setText(parking.getColor());
-        color.setText(parking.getOther());
-        other.setText(parking.getOther());
+        carType.setText("Type :"+parking.getCarType());
+        numberPlate.setText("Number Plate :"+parking.getNumberPlate());
+        color.setText("Color :"+parking.getColor());
+        other.setText("Other info :"+parking.getOther());
+//        other.setText(""+parking.getOther());
 
         listItemView.setOnClickListener(new View.OnClickListener() {
             @Override

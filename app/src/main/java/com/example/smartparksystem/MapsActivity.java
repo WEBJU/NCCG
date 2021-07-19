@@ -40,6 +40,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -107,7 +108,7 @@ public class MapsActivity extends
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     final Context context = this;
-
+    FloatingActionButton fab;
     FirebaseDatabase database;
     ArrayList<LatLng> MarkerPoints;
     DatabaseReference databaseReference;
@@ -123,7 +124,7 @@ public class MapsActivity extends
         }
         // Initializing
         MarkerPoints = new ArrayList<>();
-
+        fab=findViewById(R.id.view);
         searchView = findViewById(R.id.searchLocation);
         auth = FirebaseAuth.getInstance();
 
@@ -135,6 +136,12 @@ public class MapsActivity extends
         database = FirebaseDatabase.getInstance();
 //        databaseReference=database.getReference("parking").child("geofences");
         databaseReference = database.getReference("parking_lot");
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MapsActivity.this,ViewCarsActivity.class));
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -242,8 +249,8 @@ public class MapsActivity extends
 //                                .snippet("Available Slots :" +dataSnapshot.child("other"))
                                 .snippet("Cost  :Ksh " + dataSnapshot.child("cost").getValue(String.class)
                                         + "\n" + "Available Slots :" + dataSnapshot.child("other").getValue(String.class)
-                                        + "\n" + "Security :" + dataSnapshot.child("operating_hours").getValue(String.class)
-                                        + "\n" + "Operation Hours :" + dataSnapshot.child("security_details").getValue(String.class)));
+                                        + "\n" + "Security :" + dataSnapshot.child("security_details").getValue(String.class)
+                                        + "\n" + "Operation Hours :" + dataSnapshot.child("operating_hours").getValue(String.class)));
                     }
                 } else {
                     Toast.makeText(context, "onChildAdded:No data", Toast.LENGTH_SHORT).show();

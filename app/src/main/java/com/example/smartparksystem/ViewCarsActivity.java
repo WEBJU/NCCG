@@ -3,13 +3,16 @@ package com.example.smartparksystem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.smartparksystem.adapters.CarListAdapter;
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +28,9 @@ import static android.R.layout.*;
 public class ViewCarsActivity extends AppCompatActivity {
     DatabaseReference carsRef;
     FirebaseDatabase database;
+    FirebaseAuth auth;
     ListView carList;
+    Button car;
     ArrayList<Parking> parkingArrayList;
 
     @Override
@@ -35,8 +40,15 @@ public class ViewCarsActivity extends AppCompatActivity {
 
         carList=findViewById(R.id.carsList);
         parkingArrayList=new ArrayList<>();
-        database=FirebaseDatabase.getInstance();
+        car=findViewById(R.id.new_car);
 
+        database=FirebaseDatabase.getInstance();
+        car.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ViewCarsActivity.this,MainActivity.class));
+            }
+        });
 
         loadCars();
     }

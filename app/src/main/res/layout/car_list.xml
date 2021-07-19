@@ -28,11 +28,13 @@
                    android:layout_height="wrap_content"
                    android:padding="10dp"
                    android:text="Mercedes"
+                   android:textColor="@color/colorPrimaryDark"
                    android:textSize="18sp" />
 
                <TextView
                    android:layout_width="match_parent"
                    android:id="@+id/tvNumberPlate"
+                   android:textColor="@color/colorPrimaryDark"
                    android:layout_height="wrap_content"
                    android:padding="10dp"
                    android:text="KZY 110R"
@@ -41,6 +43,7 @@
                <TextView
                    android:layout_width="match_parent"
                    android:id="@+id/tvColor"
+                   android:textColor="@color/colorPrimaryDark"
                    android:layout_height="wrap_content"
                    android:padding="10dp"
                    android:text="Black"
@@ -50,6 +53,7 @@
                    android:id="@+id/tvOther"
                    android:layout_height="wrap_content"
                    android:padding="10dp"
+                   android:textColor="@color/colorPrimaryDark"
                    android:text="Brand new Tesla"
                    android:textSize="18sp" />
            </LinearLayout>
