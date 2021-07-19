@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -66,9 +67,10 @@ public class MainActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         carRef = database.getReference("Cars");
-//        if (auth.getCurrentUser() != null) {
+        if (auth.getCurrentUser() != null) {
             uid = auth.getCurrentUser().getUid();
-//        }
+        }
+
         carType = etCarType.getText().toString().trim();
         model = etModel.getText().toString().trim();
         numberPlate = etNumberPlate.getText().toString().trim();

@@ -54,8 +54,9 @@ public class ViewCarsActivity extends AppCompatActivity {
     }
 
     private  void loadCars(){
+        String user_id=FirebaseAuth.getInstance().getCurrentUser().getUid();
         carsRef= FirebaseDatabase.getInstance().getReference();
-        carsRef.child("Cars").addValueEventListener(new ValueEventListener() {
+        carsRef.child("Cars").child("").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){

@@ -108,9 +108,11 @@ public class MapsActivity extends
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     final Context context = this;
-    FloatingActionButton fab;
+    FloatingActionButton fab,logout,view;
+    TextView signout,my_cars;
     FirebaseDatabase database;
     ArrayList<LatLng> MarkerPoints;
+    Boolean isAllFabsVisible;
     DatabaseReference databaseReference;
     SearchView searchView;
     private static final String TAG = MapsActivity.class.getSimpleName();
@@ -124,9 +126,21 @@ public class MapsActivity extends
         }
         // Initializing
         MarkerPoints = new ArrayList<>();
-        fab=findViewById(R.id.view);
+        fab=findViewById(R.id.main);
+        view=findViewById(R.id.view);
+        logout=findViewById(R.id.logout);
         searchView = findViewById(R.id.searchLocation);
         auth = FirebaseAuth.getInstance();
+
+        signout=findViewById(R.id.signout);
+        my_cars=findViewById(R.id.my_cars);
+
+        view.setVisibility(View.GONE);
+        logout.setVisibility(View.GONE);
+        signout.setVisibility(View.GONE);
+        my_cars.setVisibility(View.GONE);
+
+        isAllFabsVisible=false;
 
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -137,6 +151,33 @@ public class MapsActivity extends
 //        databaseReference=database.getReference("parking").child("geofences");
         databaseReference = database.getReference("parking_lot");
         fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isAllFabsVisible){
+                    view.show();
+                    logout.show();
+                    signout.setVisibility(View.VISIBLE);
+                    my_cars.setVisibility(View.VISIBLE);
+                    isAllFabsVisible=true;
+                }else {
+                    view.hide();
+                    logout.hide();
+                    signout.setVisibility(View.GONE);
+                    my_cars.setVisibility(View.GONE);
+                    isAllFabsVisible=false;
+                }
+//                startActivity(new Intent(MapsActivity.this,ViewCarsActivity.class));
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                startActivity(new Intent(MapsActivity.this,LoginActivity.class));
+                Toast.makeText(context, "You are now logged out!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MapsActivity.this,ViewCarsActivity.class));
