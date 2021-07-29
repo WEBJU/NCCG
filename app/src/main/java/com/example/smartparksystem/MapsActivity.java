@@ -108,8 +108,8 @@ public class MapsActivity extends
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     final Context context = this;
-    FloatingActionButton fab,logout,view;
-    TextView signout,my_cars;
+    FloatingActionButton fab,logout,view,pay;
+    TextView signout,my_cars,txt_pay;
     FirebaseDatabase database;
     ArrayList<LatLng> MarkerPoints;
     Boolean isAllFabsVisible;
@@ -129,6 +129,8 @@ public class MapsActivity extends
         fab=findViewById(R.id.main);
         view=findViewById(R.id.view);
         logout=findViewById(R.id.logout);
+        txt_pay=findViewById(R.id.pay);
+        pay=findViewById(R.id.btn_pay);
         searchView = findViewById(R.id.searchLocation);
         auth = FirebaseAuth.getInstance();
 
@@ -137,6 +139,8 @@ public class MapsActivity extends
 
         view.setVisibility(View.GONE);
         logout.setVisibility(View.GONE);
+        pay.setVisibility(View.GONE);
+        txt_pay.setVisibility(View.GONE);
         signout.setVisibility(View.GONE);
         my_cars.setVisibility(View.GONE);
 
@@ -156,12 +160,16 @@ public class MapsActivity extends
                 if (!isAllFabsVisible){
                     view.show();
                     logout.show();
+                    pay.show();
+                    txt_pay.setVisibility(View.VISIBLE);
                     signout.setVisibility(View.VISIBLE);
                     my_cars.setVisibility(View.VISIBLE);
                     isAllFabsVisible=true;
                 }else {
                     view.hide();
                     logout.hide();
+                    pay.hide();
+                    txt_pay.setVisibility(View.GONE);
                     signout.setVisibility(View.GONE);
                     my_cars.setVisibility(View.GONE);
                     isAllFabsVisible=false;
@@ -175,6 +183,12 @@ public class MapsActivity extends
                 auth.signOut();
                 startActivity(new Intent(MapsActivity.this,LoginActivity.class));
                 Toast.makeText(context, "You are now logged out!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MapsActivity.this,PaymentsActivity.class));
             }
         });
         view.setOnClickListener(new View.OnClickListener() {
