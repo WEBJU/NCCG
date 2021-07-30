@@ -119,7 +119,7 @@ public class PaymentsActivity extends AppCompatActivity {
         total_amount=amount.getText().toString().trim();
         user_phone=phone.getText().toString().trim();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Processing payment.."+" "+ total_amount);
+        builder.setTitle("Confirm payment of"+" "+ total_amount);
 
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_PHONE);
